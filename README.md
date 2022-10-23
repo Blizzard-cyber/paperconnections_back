@@ -37,10 +37,10 @@ git push origin <yourBranchName>
 
 #合并代码到master分支
 #切换到master分支
-git  checkout master
+git  checkout main
 
 #pull master分支的状态
-git pull origin master
+git pull origin main
 
 #合并自己分支到master
 git  merge test
@@ -49,5 +49,5 @@ git  merge test
 git status
 
 #push到远端
-git push origin master
+git push origin main
 ```
