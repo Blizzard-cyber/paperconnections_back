@@ -1,53 +1,41 @@
-# 2022秋季软件工程课程实验Spingboot+VUE项目——PaperConnections后端部分
+# PaperConnection
 
-> 提供一种协同开发方法，便于维护代码的一致性
+[![](https://img.shields.io/badge/status-buliding-brightgreen.svg)]({linkUrl})
 
-## 提交指南
+PaperConnection项目的数据库与后端部份。
 
-![push](Img/push.png)
+该项目受ConnectedPapers启发，实现以文献知识图谱为核心的功能构建。
 
-## 合并指南
+PaperConnection的主要功能如下：
 
-![merge](Img/merge.png)
+- [ ] 生成给定文献的相关图谱
+- [ ] 用户注册与登录
+- [ ] 主页用户个性化推荐
+- [ ] 用户个人中心
+- [ ] 其他用户搜索
 
-##  Setup
+PaperConnection的主要技术如下：
 
-``` bash
-#拉取远端仓库代码
-git clone https://github.com/Blizzard-cyber/paperconnections_back.git
+- 前端框架：Vue
+- 后端框架：Spingboot
+- 数据库：neo4j
+- 前后端通信：Axios（基于Ajax）
 
-#拉取到本地后查看master分支（主分支）内容为模板内容
-.....
-#编写代码
-.....
-#编写代码完成
+## FolderExplanation
 
-#创建自己的分支
-git checkout -b <yourBranchName>
-
-#提交过程
-#提交所有更改
-git add .
-
-#commit
-git commit -m "提交说明"
-
-#push
-git push origin <yourBranchName>
-
-#合并代码到master分支
-#切换到master分支
-git  checkout main
-
-#pull master分支的状态
-git pull origin main
-
-#合并自己分支到master
-git  merge test
-
-#可检查状态
-git status
-
-#push到远端
-git push origin main
 ```
+PaerConnection/
+|──neo4j/:各种数据库文件
+|──java/:各种java文件
+|──utils/：一些工具目录
+	|──aboutGit.md:git使用和更新说明
+	|──aboutTabular.md:建立数据库表格的说明
+	|──img/:工具所要使用的一些图片
+|──LICENSE:MIT LICENSE
+|──REAMD.md
+```
+
+## Denpendancy
+
+- jdk==17
+- neo4j==5.1.0
