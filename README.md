@@ -25,7 +25,7 @@ PaperConnection的主要技术如下：
 
 ```
 PaerConnection/
-|──neo4j/:各种数据库文件
+|──mysql/:各种数据库文件
 |──java/:各种java文件
 |──utils/：一些工具目录
 	|──aboutGit.md:git使用和更新说明
@@ -37,5 +37,4 @@ PaerConnection/
 
 ## Denpendancy
 
-- jdk==17
-- neo4j==5.1.0
+- mysql

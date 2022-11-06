@@ -44,7 +44,6 @@ PaperConnection的主要功能如下：
   - name:文章标题
   - year:文章年份
   - others:发表期刊（可选）
-  
 - link（存储文章的链接）
   - linkID(auto INC)
   - paperID：文章对应的paper表ID
@@ -60,10 +59,10 @@ PaperConnection的主要功能如下：
   - citeID(auto INC)
   - paperID：引用文章信息
   - citePaperID：被引用文章信息
-
 - user：存储用户信息
   - userID(auto INC)
   - name：用户名称
+  - pwd:密码
 - tag：存储标签信息
   - tagID(autoID)
   - tag_content：标签内容
@@ -79,18 +78,7 @@ PaperConnection的主要功能如下：
   - uulinkID(auto INC)
   - user1ID：关注着信息
   - user2ID：被关注者信息
-- msg：推送信息
-  - msgID(auto INC)
-  - content：推送内容
-- m_t_link：推送与tag对应信息
-  - mtlinkID(auto INC)
+- p_t_link：推送与tag对应信息
+  - ptlinkID(auto INC)
   - tagID：tag信息
-  - msgID：推送信息
-
-- u_m_link:存储用户和推送对应信息
-
-  - umlinkID(auto INC)
-
-  - userID:用户ID
-
-  - msgID:推送ID
+  - paperID：文章信息
