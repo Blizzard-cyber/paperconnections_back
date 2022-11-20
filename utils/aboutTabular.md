@@ -44,7 +44,6 @@ PaperConnection的主要功能如下：
   - name:文章标题
   - year:文章年份
   - others:发表期刊（可选）
-  
 - link（存储文章的链接）
   - linkID(auto INC)
   - paperID：文章对应的paper表ID
@@ -60,10 +59,10 @@ PaperConnection的主要功能如下：
   - citeID(auto INC)
   - paperID：引用文章信息
   - citePaperID：被引用文章信息
-
 - user：存储用户信息
   - userID(auto INC)
   - name：用户名称
+  - pwd:密码
 - tag：存储标签信息
   - tagID(autoID)
   - tag_content：标签内容
@@ -79,18 +78,61 @@ PaperConnection的主要功能如下：
   - uulinkID(auto INC)
   - user1ID：关注着信息
   - user2ID：被关注者信息
-- msg：推送信息
-  - msgID(auto INC)
-  - content：推送内容
-- m_t_link：推送与tag对应信息
-  - mtlinkID(auto INC)
+- p_t_link：推送与tag对应信息
+  - ptlinkID(auto INC)
   - tagID：tag信息
-  - msgID：推送信息
+  - paperID：文章信息
 
-- u_m_link:存储用户和推送对应信息
+### V2.0
 
-  - umlinkID(auto INC)
+#### 添加元素
 
+- [x] paper-link
+- [ ] author
+- [x] title
+- [x] commit
+- [x] journal
+- [x] doi
+- [x] categories
+- [x] abstract
+- [x] license
+- [x] date
+
+#### 具体方案
+
+- paper(存储文章的标题)
+  - paperID(auto INC)
+  - title:文章标题
+  - date:文章年份
+  - journ:发表期刊
+  - commit:其他信息
+  - doi:加前缀为文章网址
+  - license
+  - abstract
+  - author
+  - categories
+- user：存储用户信息
+  - userID(auto INC)
+  - name：用户名称
+  - pwd:密码
+- tag：存储标签信息
+  - tagID(autoID)
+  - tag_content：标签内容
+  - categories
+- u_t_link:存储用户和标签对应信息
+  - utlinkID(auto INC)
+  - userID：用户ID
+  - tagID:标签ID
+- u_p_link:存储用户和文章对应信息
+  - uplinkID(auto INC)
   - userID:用户ID
-
-  - msgID:推送ID
+  - paperID:文章ID
+- u_u_link：用户之间的关注和被关注信息
+  - uulinkID(auto INC)
+  - user1ID：关注着信息
+  - user2ID：被关注者信息
+- p_t_link：推送与tag对应信息
+  - ptlinkID(auto INC)
+  - tagID：tag信息
+  - paperID：文章信息
+- meta文件：存储总数量，分类数量，用户数量等
