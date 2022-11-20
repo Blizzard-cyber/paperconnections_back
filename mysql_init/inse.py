@@ -11,7 +11,7 @@ with open('./arxiv.json', 'r', encoding='utf-8') as f:
 
 print(len(d))
 with jsonlines.open('data.jl', 'w') as f:
-    for i in tqdm(range(100)):
+    for i in tqdm(range(200)):
         f.write(d[i])
 # db = pymysql.connect(host='localhost',
 #                      user='debian-sys-maint',
