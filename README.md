@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/badge/status-buliding-brightgreen.svg)]({linkUrl})
 
-PaperConnection项目的数据库与后端部份。
+PaperConnection项目的数据库与后端部份,前端部分见[web]
 
 该项目受ConnectedPapers启发，实现以文献知识图谱为核心的功能构建。
 
@@ -18,7 +18,7 @@ PaperConnection的主要技术如下：
 
 - 前端框架：Vue
 - 后端框架：Spingboot
-- 数据库：neo4j
+- 数据库：mysql
 - 前后端通信：Axios（基于Ajax）
 
 ## FolderExplanation

@@ -1,46 +1,18 @@
+CREATE DATABASE p;
+USE p;
+
 CREATE TABLE IF NOT EXISTS `paper` (
 `paper_id` bigint NOT NULL AUTO_INCREMENT COMMENT '文章ID',
 `title` varchar(50) COMMENT '文章标题',
-`year` SMALLINT COMMENT '发表年份',
-`others` varchar(50) COMMENT '其他信息，如发表期刊等',
+`journal` varchar(15),
+`date` varchar(20),
+'commit' varchar(20),
+'doi' varchar(20),
+'author' varchar(20),
+'category' varchar(10),
+'abstract' TEXT,
 PRIMARY KEY (`paper_id`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8
-  COMMENT='文章信息'; 
-
-# INSERT INTO paper (title, year, others)
-#                       VALUES
-#         	   ('linkPrediction', '2022', 'joking' );
-
-CREATE TABLE IF NOT EXISTS `link` (
-`link_id` bigint NOT NULL AUTO_INCREMENT,
-`paper_id` bigint NOT NULL,
-`link_addr` varchar(100),
-PRIMARY KEY (`link_id`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8; 
-
-#INSERT INTO link (paper_id, link_addr)
-#                       VALUES
-#       	   ('1', 'joking');
-
-CREATE TABLE IF NOT EXISTS `author` (
-`author_id` bigint NOT NULL AUTO_INCREMENT,
-`name` varchar(100),
-PRIMARY KEY (`author_id`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8; 
-
-CREATE TABLE IF NOT EXISTS `a_p_link` (
-`aplink_id` bigint NOT NULL AUTO_INCREMENT,
-`author_id` bigint NOT NULL,
-`paper_id` bigint NOT NULL,
-PRIMARY KEY (`aplink_id`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8; 
-
-CREATE TABLE IF NOT EXISTS `cited` (
-`cite_id` bigint NOT NULL AUTO_INCREMENT,
-`citepaper_id` bigint NOT NULL,
-`paper_id` bigint NOT NULL,
-PRIMARY KEY (`cite_id`)
-) ENGINE=InnoDB DEFAULT CHARACTER SET utf8; 
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 CREATE TABLE IF NOT EXISTS `user` (
 `user_id` bigint NOT NULL AUTO_INCREMENT,
