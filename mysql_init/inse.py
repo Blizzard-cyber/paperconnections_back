@@ -14,8 +14,8 @@ with jsonlines.open('data.jl', 'w') as f:
     for i in tqdm(range(200)):
         f.write(d[i])
 # db = pymysql.connect(host='localhost',
-#                      user='debian-sys-maint',
-#                      password='tLIZjTSvJLwuaUQq',
+#                      user='/',
+#                      password='/',
 #                      database='p')
 # cursor = db.cursor()
 # for i in tqdm(range(100)):

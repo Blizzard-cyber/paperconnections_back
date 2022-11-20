@@ -10,8 +10,8 @@ with jsonlines.open("./data.jl") as f:
         d.append(line)
 
 db = pymysql.connect(host='localhost',
-                     user='debian-sys-maint',
-                     password='tLIZjTSvJLwuaUQq',
+                     user='/',
+                     password='/',
                      database='p')
 cursor = db.cursor()
 data = d[0]
