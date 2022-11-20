@@ -2,15 +2,15 @@ CREATE DATABASE p;
 USE p;
 
 CREATE TABLE IF NOT EXISTS `paper` (
-`paper_id` bigint NOT NULL AUTO_INCREMENT COMMENT '文章ID',
-`title` varchar(50) COMMENT '文章标题',
+`paper_id` bigint NOT NULL AUTO_INCREMENT,
+`title` varchar(30),
 `journal` varchar(15),
 `date` varchar(20),
-'commit' varchar(20),
-'doi' varchar(20),
-'author' varchar(20),
-'category' varchar(10),
-'abstract' TEXT,
+`commit` varchar(20),
+`doi` varchar(20),
+`author` varchar(20),
+`category` varchar(10),
+`abstract` TEXT,
 PRIMARY KEY (`paper_id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
