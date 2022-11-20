@@ -25,8 +25,8 @@ PaperConnection的主要技术如下：
 
 ```
 PaerConnection/
-|──mysql/:各种数据库文件
-|──java/:各种java文件
+|──mysql_init/:各种数据库文件
+|──java_spring/:各种java文件
 |──utils/：一些工具目录
 	|──aboutGit.md:git使用和更新说明
 	|──aboutTabular.md:建立数据库表格的说明
@@ -38,3 +38,13 @@ PaerConnection/
 ## Denpendancy
 
 - mysql
+
+## Usage
+
+```bash
+cd ./mysql_init
+mysql ./tabula_init.sql
+python inse.py
+python insert_short.py
+```
+
