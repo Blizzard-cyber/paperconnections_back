@@ -1,15 +1,18 @@
 CREATE DATABASE p;
 USE p;
-
+create user 'superboy'@'localhost' identified by 'boy123';
+flush privileges;
+grant select,insert,update,delete on p.* to superboy@'%';
+flush privileges;
 CREATE TABLE IF NOT EXISTS `paper` (
 `paper_id` bigint NOT NULL AUTO_INCREMENT,
-`title` varchar(30),
-`journal` varchar(15),
-`date` varchar(20),
-`commit` varchar(20),
-`doi` varchar(20),
-`author` varchar(20),
-`category` varchar(10),
+`title` TinyTEXT,
+`journal` TinyTEXT,
+`date` TinyTEXT,
+`commit` TinyTEXT,
+`doi` TinyTEXT,
+`author` TinyTEXT,
+`category` TinyTEXT,
 `abstract` TEXT,
 PRIMARY KEY (`paper_id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
