@@ -1,9 +1,5 @@
 CREATE DATABASE p;
 USE p;
-create user 'superboy'@'localhost' identified by 'boy123';
-flush privileges;
-grant select,insert,update,delete on p.* to superboy@'%';
-flush privileges;
 CREATE TABLE IF NOT EXISTS `paper` (
 `paper_id` bigint NOT NULL AUTO_INCREMENT,
 `id` varchar(10),
