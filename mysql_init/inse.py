@@ -4,37 +4,22 @@ import json
 from tqdm import tqdm
 
 d = []
+numw = 0
 with open('./arxiv.json', 'r', encoding='utf-8') as f:
     for lines in f:
         t = json.loads(lines)
         d.append(t)
+        numw += 1
+        if numw > 50000:
+            break
 
-print(len(d))
-with jsonlines.open('data.jl', 'w') as f:
-    for i in tqdm(range(200)):
-        f.write(d[i])
-# db = pymysql.connect(host='localhost',
-#                      user='/',
-#                      password='/',
-#                      database='p')
-# cursor = db.cursor()
-# for i in tqdm(range(100)):
-#     data = d[i]
-#     # sql = f"""INSERT INTO paper(title,
-#     #      journal, date, commit, doi, author, category, abstract)
-#     #      VALUES ({d['title']}, {d['journal-ref']}, {d['update-date']},
-#     #       {d['commits']}, {d['doi']}, {d['authors']}, {d['categories']}, {d['abstract']})"""
-#     # try:
-#     #     # 执行sql语句
-#     #     cursor.execute(sql)
-#     #     # 提交到数据库执行
-#     #     db.commit()
-#     # except Exception as e:
-#     #     # 如果发生错误则回滚
-#     #     db.rollback()
-#
-#     with jsonlines.open('data.jl', 'w') as f:
-#         f.write(d[i])
+tag_row = ['cs.AI', 'cs.AR', 'cs.CC', 'cs.CE', 'cs.CG']
+num = [0, 0, 0, 0, 0]
+with jsonlines.open('data1.jl', 'w') as f:
+    for i in range(len(d)):
+        for j in range(5):
+            if tag_row[j] in d[i]['categories']:
+                f.write(d[i])
+                num[j] += 1
+print(num)
 
-# 关闭数据库连接
-# db.close()
