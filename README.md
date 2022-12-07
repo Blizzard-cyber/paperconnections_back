@@ -17,7 +17,7 @@ PaperConnection的主要功能如下：
 PaperConnection的主要技术如下：
 
 - 前端框架：Vue
-- 后端框架：Spingboot
+- 后端框架：SSM
 - 数据库：mysql
 - 前后端通信：Axios（基于Ajax）
 
@@ -27,6 +27,7 @@ PaperConnection的主要技术如下：
 PaerConnection/
 |──mysql_init/:各种数据库文件
 |──java_spring/:各种java文件
+	|──PaperConnections:后端java项目
 |──utils/：一些工具目录
 	|──aboutGit.md:git使用和更新说明
 	|──aboutTabular.md:建立数据库表格的说明
