@@ -17,13 +17,14 @@ PRIMARY KEY (`paper_id`)
 CREATE TABLE IF NOT EXISTS `user` (
 `user_id` bigint NOT NULL AUTO_INCREMENT,
 `name` varchar(20),
-`pwd` varchar(20),
+`pwd` varchar(50),
 PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
 CREATE TABLE IF NOT EXISTS `tag` (
 `tag_id` bigint NOT NULL AUTO_INCREMENT,
-`content` varchar(20),
+`content` varchar(50),
+`categories` varchar(50),
 PRIMARY KEY (`tag_id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
 
@@ -54,4 +55,6 @@ CREATE TABLE IF NOT EXISTS `p_t_link` (
 `tag_id` bigint NOT NULL,
 PRIMARY KEY (`ptlink_id`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET utf8;
+
+SET @@global.sql_mode= '';
 
