@@ -4,4 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kuang.dao.PaperMapper">
 
+    <select id="allPaper" resultType="com.kuang.pojo.Paper">
+        select * from p.paper
+    </select>
+
+    <select id="queryPaperById" resultType="com.kuang.pojo.Paper">
+        select * from p.paper where paper_id=#{id}
+    </select>
+    
+    <select id="queryPaperBySearch" resultType="com.kuang.pojo.Paper">
+        select * from p.paper where locate(#{str},title)>0
+    </select>
+
+
+
+
 </mapper>
