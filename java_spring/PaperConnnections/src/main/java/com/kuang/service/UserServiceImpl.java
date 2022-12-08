@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> queryUserLinkTo(int id) {
-        return null;
+       return null;
     }
 
     @Override
@@ -48,8 +48,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int addUser(User user) {
-        return 0;
+    public boolean selectUser(String str) {
+        return false;
+    }
+
+    @Override
+    public boolean addUser(String email, String pwd) {
+        return true;
     }
 
     @Override
@@ -58,12 +63,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int updateUserLink(int userId1, int userId2, int typ) {
+    public int updateUserLink(int userId1, int userId2, boolean type) {
         return 0;
     }
 
+
     @Override
-    public int updateUserPaperLink(int userId, int paperId, int typ) {
+    public int updateUserPaperLink(int userId, int paperId, boolean type) {
         return 0;
     }
 }

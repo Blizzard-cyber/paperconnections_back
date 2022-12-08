@@ -28,6 +28,7 @@ public interface UserService {
     //按照算法查询user,查询指定id的user被关注的用户List
     List<User> queryUserLinkFrom(int id);
 
+
     //查询用户关注关系
     //返回值 0 表示未关注，1表示关注
     int queryUserLink(int userId1,int userId2);
@@ -36,8 +37,11 @@ public interface UserService {
     //返回值 0 表示未收藏，1表示收藏
     int queryUserPaperLink(int userId,int paperId);
 
+    //查询用户账号是否存在
+    boolean selectUser(String str);
+
     //添加一个用户
-    int addUser(User user);
+    boolean addUser(String email, String pwd);
 
     //修改用户信息
     int updateUser(User user);
@@ -45,10 +49,10 @@ public interface UserService {
     //将一个用户加入/取消关注
     //表示userId1用户关注/取消关注了userId2用户
     //返回值0/1表示更改后的状态 0 表示未关注，1表示关注
-    int updateUserLink(int userId1,int userId2,int typ);
+    int updateUserLink(int userId1,int userId2,boolean typ);
 
     //将一篇文章加入/取消收藏
     //表示userId用户收藏了paperId文章
     //返回值0/1表示更改后的状态 0 表示未收藏，1表示收藏
-    int updateUserPaperLink(int userId,int paperId,int typ);
+    int updateUserPaperLink(int userId,int paperId,boolean typ);
 }
