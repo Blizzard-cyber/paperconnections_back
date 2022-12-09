@@ -2,11 +2,17 @@ package com.kuang.dao;
 
 import com.kuang.pojo.Paper;
 import com.kuang.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 //主要负责user
 public interface UserMapper {
+    //检查用户名存在
+    int checkEmail(String name);
+
+    //检查用户名和密码
+    int checkLogin(@Param("name") String name, @Param("pwd") String pwd);
 
     //返回所有user
     List<User> allUser();
@@ -34,12 +40,12 @@ public interface UserMapper {
 
     //查询用户关注关系
     //返回值 0 表示未关注，1表示关注
-    int queryUserLink(int userId1,int userId2);
+    int queryUserLink(@Param("userId1") int userId1,@Param("userId2") int userId2);
     //done
 
     //查询用户与文章收藏关系
     //返回值 0 表示未收藏，1表示收藏
-    int queryUserPaperLink(int userId,int paperId);
+    int queryUserPaperLink(@Param("userId") int userId,@Param("paperId") int paperId);
     //done
 
     //添加一个用户
@@ -51,11 +57,11 @@ public interface UserMapper {
     //done
 
     //userId1关注userId2
-    int insertUserUserlink(int userId1, int userId2);
+    int insertUserUserlink(@Param("userId1") int userId1,@Param("userId2") int userId2);
     //done
 
     //userId1取消关注userId2
-    int deleteUserUserLink(int userId1, int userId2);
+    int deleteUserUserLink(@Param("userId1") int userId1,@Param("userId2") int userId2);
     //done
 
     //将一个用户加入/取消关注
@@ -63,10 +69,10 @@ public interface UserMapper {
     //返回值0/1表示更改后的状态 0 表示未关注，1表示关注
     //int updateUserLink(int userId1,int userId2,int typ);
 
-    int insertUserPaperLink(int userId, int papaerId);
+    int insertUserPaperLink(@Param("userId") int userId,@Param("paperId") int paperId);
     //done
 
-    int deleteUserPaperLink(int userId, int paperId);
+    int deleteUserPaperLink(@Param("userId") int userId,@Param("paperId") int paperId);
     //done
 
     //将一篇文章加入/取消收藏

@@ -15,6 +15,9 @@ public interface PaperService {
     //查询与某个文章相关联的文章列表
     List<Paper> queryPaperByConnection(int id);
 
-    //根据给定id的文章推荐相关文章
-    List<Paper> queryPaperByRecommendation();
+    //根据给定用户id的文章推荐相关文章
+    List<Paper> queryPaperByRecommendation(int id);
+
+    //根据用户id返回用户收藏的文章
+    List<Paper> queryPaperUserCollection(int id);
 }

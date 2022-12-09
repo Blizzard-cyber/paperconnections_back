@@ -23,7 +23,13 @@ public class PaperServiceImpl implements PaperService{
     }
 
     @Override
-    public List<Paper> queryPaperByRecommendation() {
+    public List<Paper> queryPaperByRecommendation(int id) {
         return null;
     }
+
+    @Override
+    public List<Paper> queryPaperUserCollection(int id) {
+        return null;
+    }
+
 }
