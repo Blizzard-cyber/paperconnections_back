@@ -21,12 +21,18 @@ public class UserController {
 
     //测试连接接口
     @RequestMapping(value = "/hello/{id}",method = RequestMethod.GET)
+<<<<<<< HEAD:java_spring/paper_connection/src/main/java/com/paper/connection/controller/UserController.java
     public String test(@PathVariable("id") String id){
 //        System.out.println("hello");
 
         return id;
+=======
+    public User test(@PathVariable("id") String id){
+//        System.out.println("hello");
+        User user = new User(1,"John","John123");
+        return user;
+>>>>>>> a320ee0d728521e1bce48b238be8152c2b57d6eb:java_spring/PaperConnnections/src/main/java/com/kuang/controller/UserController.java
     }
-
 
     //1.2用户收藏文章功能接口
     @RequestMapping(value = "/userPaper/{userId}/{paperId}/{flag}", method = RequestMethod.POST)
@@ -42,7 +48,11 @@ public class UserController {
     }
 
     //2.1登录接口 返回值两种类型存在Login_return实体类中
+<<<<<<< HEAD:java_spring/paper_connection/src/main/java/com/paper/connection/controller/UserController.java
     @RequestMapping(value = "/singIn/{email}/{passwd}", method = RequestMethod.GET)
+=======
+    @RequestMapping(value = "/singIn/{email}/{passwd}", method = RequestMethod.POST)
+>>>>>>> a320ee0d728521e1bce48b238be8152c2b57d6eb:java_spring/PaperConnnections/src/main/java/com/kuang/controller/UserController.java
     public LoginReturn login(@PathVariable("email") String email, @PathVariable("passwd") String passwd) {
 
         return userService.checkUserLog(email,passwd);
@@ -85,6 +95,7 @@ public class UserController {
         return null;
     }
 
+<<<<<<< HEAD:java_spring/paper_connection/src/main/java/com/paper/connection/controller/UserController.java
     //4.4用户关注用户查询接口
     @RequestMapping(value = "/userLinkQuery/{id1}/{id2}", method = RequestMethod.GET)
     public boolean userQueryUserstate(@PathVariable("id1") int id1, @PathVariable("id2") int id2)
@@ -94,6 +105,10 @@ public class UserController {
 
     //4.5用户关注用户功能接口
     @RequestMapping(value = "/userLink/{type}/{id1}/{id2}", method = RequestMethod.GET)
+=======
+    //4.4用户关注用户功能接口
+    @RequestMapping(value = "/userLinkInfo/{type}/{id1}/{id2}", method = RequestMethod.GET)
+>>>>>>> a320ee0d728521e1bce48b238be8152c2b57d6eb:java_spring/PaperConnnections/src/main/java/com/kuang/controller/UserController.java
     public void userCollectUser(@PathVariable("type") boolean type, @PathVariable("id1") int id1, @PathVariable("id2") int id2)
     {
         userService.updateUserLink(id1,id2,type);
