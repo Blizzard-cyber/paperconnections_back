@@ -27,4 +27,9 @@ public class PaperServiceImpl implements PaperService{
         return null;
     }
 
+    @Override
+    public List<Paper> queryPaperUserCollection(int id) {
+        return null;
+    }
+
 }
