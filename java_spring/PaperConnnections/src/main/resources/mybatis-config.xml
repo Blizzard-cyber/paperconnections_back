@@ -3,17 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <settings>
+        <!--将表中字段的下划线自动转换为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--开启延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
 
-    <!--配置数据源，交给spring去做-->
+    <!--设置类型别名-->
     <typeAliases>
-        <package name="com.kuang.pojo"/>
+        <package name="com.paper.connection.pojo"/>
     </typeAliases>
-
-    <!--配置mapper类-->
-    <!--<mappers>
-        <mapper class="com.kuang.dao.BookMapper"/>
-    </mappers>-->
-
-    <!--其实这里也可以直接使用注解配置mappers-->
-    <!--这样就不用写mapper配置文件了-->
 </configuration>

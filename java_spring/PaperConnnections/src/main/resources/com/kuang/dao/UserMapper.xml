@@ -45,11 +45,11 @@
     </select>
 
     <insert id="addUser" parameterType="com.kuang.pojo.User">
-        insert into p.user (name, pwd) VALUES (#{email},#{pwd})
+        insert into p.user (name, pwd) VALUES (#{name},#{pwd})
     </insert>
 
     <update id="updateUser" parameterType="com.kuang.pojo.User">
-        update p.user set name=#{email},pwd=#{pwd} where user_id = #{userId}
+        update p.user set name=#{name},pwd=#{pwd} where user_id = #{user_id}
     </update>
 
     <insert id="insertUserUserlink" parameterType="int">
