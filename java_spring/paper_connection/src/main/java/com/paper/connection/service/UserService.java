@@ -32,8 +32,6 @@ public interface UserService {
     //返回值 0 表示未收藏，1表示收藏
     boolean queryUserPaperLink(int userId,int paperId);
 
-    //查询用户与用户关注关系
-    //返回值 0 表示未关注，1表示关注
     boolean queryUserUserLink(int id1, int id2);
 
     //添加一个用户

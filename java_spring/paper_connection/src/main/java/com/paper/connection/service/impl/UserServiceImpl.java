@@ -70,7 +70,6 @@ public class UserServiceImpl implements UserService {
         return userDao.queryUserLinkFrom(id);
     }
 
-<<<<<<< HEAD:java_spring/paper_connection/src/main/java/com/paper/connection/service/impl/UserServiceImpl.java
 
     @Override
     public boolean queryUserPaperLink(int userId, int paperId) {
@@ -80,12 +79,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean queryUserUserLink(int id1, int id2) {
         return userDao.queryUserLink(id1,id2)!=0;
-=======
-
-    @Override
-    public boolean queryUserPaperLink(int userId, int paperId) {
-        return userDao.queryUserPaperLink(userId,paperId)!=0;
->>>>>>> a320ee0d728521e1bce48b238be8152c2b57d6eb:java_spring/PaperConnnections/src/main/java/com/kuang/service/UserServiceImpl.java
     }
 
     @Override

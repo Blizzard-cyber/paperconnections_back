@@ -37,15 +37,13 @@ public class PaperController {
     {
         return paperService.queryPaperByRecommendation();
     }
-<<<<<<< HEAD:java_spring/paper_connection/src/main/java/com/paper/connection/controller/PaperController.java
 
-    //搜索文章接口
+    //文章搜索接口
     @RequestMapping(value = "/paperSearch/{str}", method = RequestMethod.GET)
-    public List<Paper> userSearchPaper(@PathVariable("str") String str)
+    public List<Paper> userRecommendPage(@PathVariable("str") String str)
     {
-
         return paperService.queryPaperBySearch(str);
     }
-=======
->>>>>>> a320ee0d728521e1bce48b238be8152c2b57d6eb:java_spring/PaperConnnections/src/main/java/com/kuang/controller/PaperController.java
+
+
 }

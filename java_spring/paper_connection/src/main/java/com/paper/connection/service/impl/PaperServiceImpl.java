@@ -35,41 +35,10 @@ public class PaperServiceImpl implements PaperService {
     }
 
     @Override
-<<<<<<< HEAD:java_spring/paper_connection/src/main/java/com/paper/connection/service/impl/PaperServiceImpl.java
-    public List<Paper> queryPaperBySearch(String str)
-    {
-        return paperDao.queryPaperBySearch(str);
-=======
     public List<Paper> queryPaperBySearch(String str) {
-        List<Paper>  list = paperDao.allPaper();
-        List<Pair<Paper, Float>> pairs = new ArrayList<>();
-
-        for(int i = 0; i < list.size(); i++){
-            float tmp = getSimilarity(list.get(i).getTitle(), str);
-            if(tmp > threshold){
-                pairs.add(Pair.of(list.get(i), tmp));
-            }
-        }
-
-        //排序, 距离小的在前面，按照距离升序排列
-        pairs.sort(new Comparator<Pair<Paper, Float>>() {
-            @Override
-            public int compare(Pair<Paper, Float> o1, Pair<Paper, Float> o2) {
-                float tmp = o1.getValue() - o2.getValue();
-                if (tmp > 0) return 1;
-                else if (tmp == 0) return 0;
-                else return -1;
-            }
-        });
-
-        //取出前Num个Paper返回
-        list.clear();
-        for(int i = 0; i<= min(pairs.size(), Num);i++){
-            list.add(pairs.get(i).getKey());
-        }
-        return list;
->>>>>>> a320ee0d728521e1bce48b238be8152c2b57d6eb:java_spring/PaperConnnections/src/main/java/com/kuang/service/PaperServiceImpl.java
+        return paperDao.queryPaperBySearch(str);
     }
+
 //    public List<Paper> queryPaperBySearch(String str) {
 //        List<Paper>  list = paperDao.allPaper();
 //        List<Pair<Paper, Float>> pairs = new ArrayList<>();
