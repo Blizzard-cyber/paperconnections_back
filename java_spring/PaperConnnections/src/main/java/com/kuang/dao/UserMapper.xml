@@ -3,6 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kuang.dao.UserMapper">
+
+    <select id="checkEmail" resultType="int">
+        select count(*) from p.user where name=#{name}
+    </select>
+
+    <select id="checkLogin" resultType="int">
+        select count(*) from p.user where p.user.name=#{name} and p.user.pwd=#{pwd}
+    </select>
+
     <select id="allUser" resultType="com.kuang.pojo.User">
         select * from p.user
     </select>
@@ -28,11 +37,11 @@
     </select>
 
     <select id="queryUserLink" resultType="int">
-        select p.u_u_link.user1_id=#{userId1} and p.u_u_link.user2_id=#{userId2}
+        select count(*) from p.user,p.u_u_link where p.u_u_link.user1_id=#{userId1} and p.u_u_link.user2_id=#{userId2}
     </select>
 
     <select id="queryUserPaperLink" resultType="int">
-        select p.u_p_link.user_id=#{userId} and p.u_p_link.paper_id=#{paperId}
+        select count(*) from p.user where p.u_p_link.user_id=#{userId} and p.u_p_link.paper_id=#{paperId}
     </select>
 
     <insert id="addUser" parameterType="com.kuang.pojo.User">
