@@ -9,6 +9,8 @@ public class MyTest {
     //junit测试类
     @Test
     public void test(){
+        System.out.println("test");
+
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserMapper userMapper = (UserMapper) context.getBean("userMapper");
 

@@ -1,6 +1,5 @@
 package com.kuang.dao;
 
-import com.kuang.pojo.Paper;
 import com.kuang.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
@@ -45,7 +44,7 @@ public interface UserMapper {
 
     //查询用户与文章收藏关系
     //返回值 0 表示未收藏，1表示收藏
-    int queryUserPaperLink(@Param("userId") int userId,@Param("paperId") int paperId);
+    int queryUserPaperLink(@Param("userId") int userId, @Param("paperId") int paperId);
     //done
 
     //添加一个用户

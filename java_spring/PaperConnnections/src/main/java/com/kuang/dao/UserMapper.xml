@@ -68,5 +68,4 @@
         delete from p.u_p_link where paper_id=#{paperId} and user_id=#{userId}
     </delete>
 
-
 </mapper>

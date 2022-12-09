@@ -18,15 +18,19 @@ import java.util.List;
 public class UserController {
     @Qualifier("userServiceImpl")
     private UserService userService;
-    @Qualifier("paperServiceImpl")
-    private PaperService paperService;
+
+    //测试连接接口
+    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    public String test(){
+//        System.out.println("hello");
+        return "hello";
+    }
 
 
     //1.2用户收藏文章功能接口
-    @RequestMapping(value = "/userPaper/{userId}/{paperId}/{flag}", method = RequestMethod.POST)
+    @RequestMapping(value = "/userPaper/{userId}/{paperId}/{flag}",method = RequestMethod.GET)
     public boolean user_Collect_Paper(@PathVariable("userId") int userId, @PathVariable("paperId") int paperId, @PathVariable("flag") boolean flag){
         return userService.updateUserPaperLink(userId,paperId,flag);
-
     }
 
     //2.1登录接口 返回值两种类型存在Login_return实体类中
@@ -43,7 +47,6 @@ public class UserController {
         return userService.addUser(email,passwd);
     }
 
-
     //4.1用户页面接口 & 5.2用户查询接口
     @RequestMapping(value = "/userInfo/{id}", method = RequestMethod.GET)
     public User user_Homepage(@PathVariable("id") int id)
@@ -55,7 +58,7 @@ public class UserController {
     @RequestMapping(value = "/userPaperInfo/{id}", method = RequestMethod.GET)
     public List<Paper> user_Paper_Cellection_Page(@PathVariable("id") int id)
     {
-        return paperService.queryPaperUserCollection(id);
+        return userService.queryUserPaperInfo(id);
     }
 
     //4.3用户关注用户界面接口

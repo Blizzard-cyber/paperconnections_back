@@ -3,14 +3,17 @@ package com.kuang.service;
 import com.kuang.dao.PaperMapper;
 import com.kuang.dao.UserMapper;
 import com.kuang.pojo.Login_return;
+import com.kuang.pojo.Paper;
 import com.kuang.pojo.Signup_return;
 import com.kuang.pojo.User;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,12 +21,11 @@ public class UserServiceImpl implements UserService{
 
 //    ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 //    UserMapper userMapper = (UserMapper) context.getBean("userMapper");
+    @Autowired
     private UserMapper userMapper;
-    @Test
-    public void test1(){
-        User user = queryUserById(1);
-        System.out.println(user);
-    }
+
+    @Autowired
+    private  PaperMapper paperMapper;
 
     @Override
     public User queryUserById(int id) {
@@ -82,8 +84,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int queryUserPaperLink(int userId, int paperId) {
-        return userMapper.queryUserPaperLink(userId,paperId);
+    public boolean queryUserPaperLink(int userId, int paperId) {
+        return userMapper.queryUserPaperLink(userId,paperId)!=0;
     }
 
     @Override
@@ -160,5 +162,17 @@ public class UserServiceImpl implements UserService{
         }
 
         return false;
+    }
+
+    @Override
+    public List<Paper> queryUserPaperInfo(int id) {
+        List<Paper> list = paperMapper.allPaper();
+        List<Paper> re = new ArrayList<>();
+        for(Paper paper : list){
+            if(queryUserPaperLink(id, paper.getPaperId())){
+                re.add(paper);
+            }
+        }
+        return re;
     }
 }

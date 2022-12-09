@@ -37,7 +37,7 @@ public interface UserService {
 
     //查询用户与文章收藏关系
     //返回值 0 表示未收藏，1表示收藏
-    int queryUserPaperLink(int userId,int paperId);
+    boolean queryUserPaperLink(int userId,int paperId);
 
     //添加一个用户
     Signup_return addUser(String email, String pwd);
@@ -54,4 +54,6 @@ public interface UserService {
     //表示userId用户收藏了paperId文章
     //返回值0/1表示更改后的状态 0 表示未收藏，1表示收藏
     boolean updateUserPaperLink(int userId,int paperId,boolean typ);
+
+    List<Paper> queryUserPaperInfo(int id);
 }

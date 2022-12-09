@@ -1,8 +1,11 @@
 package com.kuang.pojo;
 
+import jdk.internal.util.xml.impl.Pair;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -23,4 +26,12 @@ public class Node {
 
     //前端绘图工具信息
     private ToolTip toolTip;
+
+    public Node(Paper paper) {
+        this.name = "<"+paper.getAuthor()+","+paper.getDate()+">";
+        this.id = paper.getPaperId();
+        this.symbolSize = 80;
+        this.color = "##006400";
+        this.toolTip = new ToolTip(true, paper.getTitle());
+    }
 }
