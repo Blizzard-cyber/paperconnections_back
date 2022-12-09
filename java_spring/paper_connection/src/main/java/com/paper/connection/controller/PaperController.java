@@ -37,4 +37,13 @@ public class PaperController {
     {
         return paperService.queryPaperByRecommendation();
     }
+
+    //文章搜索接口
+    @RequestMapping(value = "/paperSearch/{str}", method = RequestMethod.GET)
+    public List<Paper> userRecommendPage(@PathVariable("str") String str)
+    {
+        return paperService.queryPaperBySearch(str);
+    }
+
+
 }

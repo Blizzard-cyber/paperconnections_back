@@ -32,6 +32,8 @@ public interface UserService {
     //返回值 0 表示未收藏，1表示收藏
     boolean queryUserPaperLink(int userId,int paperId);
 
+    boolean queryUserUserLink(int id1, int id2);
+
     //添加一个用户
     SignupReturn addUser(String email, String pwd);
 

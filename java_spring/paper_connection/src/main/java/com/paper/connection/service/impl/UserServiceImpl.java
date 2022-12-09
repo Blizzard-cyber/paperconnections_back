@@ -77,6 +77,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean queryUserUserLink(int id1, int id2) {
+        return userDao.queryUserLink(id1,id2)!=0;
+    }
+
+    @Override
     public SignupReturn addUser(String email, String pwd) {
 
         SignupReturn signup_return = new SignupReturn();

@@ -32,6 +32,13 @@ public class UserController {
         return userService.updateUserPaperLink(userId,paperId,flag);
     }
 
+    //用户收藏文章查询接口
+    @RequestMapping(value = "userPaperQuery/{userId}/{paperId}",method = RequestMethod.GET)
+    public boolean queryUserPaperLink(@PathVariable("userId") int userId, @PathVariable("paperId") int paperId)
+    {
+        return userService.queryUserPaperLink(userId,paperId);
+    }
+
     //2.1登录接口 返回值两种类型存在Login_return实体类中
     @RequestMapping(value = "/singIn/{email}/{passwd}", method = RequestMethod.POST)
     public LoginReturn login(@PathVariable("email") String email, @PathVariable("passwd") String passwd) {
@@ -60,6 +67,7 @@ public class UserController {
         return userService.queryUserPaperInfo(id);
     }
 
+
     //4.3用户关注用户界面接口
     @RequestMapping(value = "/userLinkInfo/{type}/{id}", method = RequestMethod.GET)
     public List<User> userUserCollectionPage(@PathVariable("id") int id, @PathVariable("type") int type)
@@ -76,10 +84,17 @@ public class UserController {
     }
 
     //4.4用户关注用户功能接口
-    @RequestMapping(value = "/userLinkInfo/{type}/{id1}/{id2}", method = RequestMethod.GET)
+    @RequestMapping(value = "/userLink/{type}/{id1}/{id2}", method = RequestMethod.GET)
     public void userCollectUser(@PathVariable("type") boolean type, @PathVariable("id1") int id1, @PathVariable("id2") int id2)
     {
         userService.updateUserLink(id1,id2,type);
+    }
+
+    //4.5用户关注用户查询接口
+    @RequestMapping(value = "userLinkQuery/{id1}/{id2}", method = RequestMethod.GET)
+    public boolean userLinkQuery(@PathVariable("id1") int id1, @PathVariable("id2") int id2)
+    {
+        return userService.queryUserUserLink(id1,id2);
     }
 
     //5.1搜索用户功能接口

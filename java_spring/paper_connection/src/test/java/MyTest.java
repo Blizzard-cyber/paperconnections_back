@@ -1,4 +1,6 @@
+import com.paper.connection.dao.PaperDao;
 import com.paper.connection.dao.UserDao;
+import com.paper.connection.pojo.Paper;
 import com.paper.connection.pojo.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -8,13 +10,12 @@ public class MyTest {
     @Test
     public void test(){
         ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
-        UserDao userDao = (UserDao) context.getBean("userDao");
-        User user = new User(1,"admin","123456");
+        PaperDao paperDao = (PaperDao) context.getBean("paperDao");
 
-        //userDao.addUser(user);
-
-        for (User user1 : userDao.allUser()) {
-            System.out.println(user1);
+        for (Paper sim : paperDao.queryPaperBySearch("sim")) {
+            System.out.println(sim);
         }
+
+
     }
 }
